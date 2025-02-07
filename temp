@@ -1,0 +1,258 @@
+0x7fffc5c00000===============0x7fffc5c00000    0x7fff00000000
+0x7fffc525b100===============0x7fffc525b100
+0x7fffc525c700===============0x7fffc525c700
+
+
+
+
+
+
+
+
+
+CUDA thread hit Breakpoint 1.2, link<<<(1,1,1),(1,1,1)>>> (page1=0x7fffa0000000, page2=0x7fffa0200000) at poc.cu:144
+144	    int64_t addr1 = (int64_t)page1 + 16;
+(cuda-gdb) print &arr1
+No symbol "arr1" in current context.
+(cuda-gdb) print ((unsigned int*) (&arr1)) + 21
+No symbol "arr1" in current context.
+(cuda-gdb)                                                                                                                                             
+No symbol "arr1" in current context.
+(cuda-gdb) 
+No symbol "arr1" in current context.
+(cuda-gdb) 
+No symbol "arr1" in current context.
+(cuda-gdb) 
+No symbol "arr1" in current context.
+(cuda-gdb) print ((unsigned int*) (&arr1)) + 21
+No symbol "arr1" in current context.
+(cuda-gdb) info address sum1
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x0.
+(cuda-gdb)                                                                                                                                             
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x0.
+(cuda-gdb) 
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x0.
+(cuda-gdb) 
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x0.
+(cuda-gdb) 
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x0.
+(cuda-gdb) dis main                                                                                                                                    
+Bad breakpoint number 'main'
+(cuda-gdb) disas main
+Dump of assembler code for function main:
+   0x000055555555ec79 <+0>:	
+   0x000055555555ec7a <+1>:	
+   0x000055555555ec7b <+2>:	
+   0x000055555555ec7c <+3>:	
+   0x000055555555ec7d <+4>:	
+   0x000055555555ec7e <+5>:	
+   0x000055555555ec7f <+6>:	
+   0x000055555555ec80 <+7>:	
+   0x000055555555ec81 <+8>:	
+   0x000055555555ec82 <+9>:	
+   0x000055555555ec83 <+10>:	
+   0x000055555555ec84 <+11>:	
+   0x000055555555ec85 <+12>:	
+   0x000055555555ec86 <+13>:	
+   0x000055555555ec87 <+14>:	
+   0x000055555555ec88 <+15>:	
+   0x000055555555ec89 <+16>:	
+   0x000055555555ec8a <+17>:	
+   0x000055555555ec8b <+18>:	
+   0x000055555555ec8c <+19>:	
+   0x000055555555ec8d <+20>:	
+   0x000055555555ec8e <+21>:	
+   0x000055555555ec8f <+22>:	
+   0x000055555555ec90 <+23>:	
+   0x000055555555ec91 <+24>:	
+   0x000055555555ec92 <+25>:	
+   0x000055555555ec93 <+26>:	
+   0x000055555555ec94 <+27>:	
+   0x000055555555ec95 <+28>:	
+   0x000055555555ec96 <+29>:	
+   0x000055555555ec97 <+30>:	
+   0x000055555555ec98 <+31>:	
+   0x000055555555ec99 <+32>:	
+   0x000055555555ec9a <+33>:	
+   0x000055555555ec9b <+34>:	
+   0x000055555555ec9c <+35>:	
+   0x000055555555ec9d <+36>:	
+   0x000055555555ec9e <+37>:	
+   0x000055555555ec9f <+38>:	
+   0x000055555555eca0 <+39>:	
+   0x000055555555eca1 <+40>:	
+   0x000055555555eca2 <+41>:	
+   0x000055555555eca3 <+42>:	
+   0x000055555555eca4 <+43>:	
+   0x000055555555eca5 <+44>:	
+   0x000055555555eca6 <+45>:	
+   0x000055555555eca7 <+46>:	
+   0x000055555555eca8 <+47>:	
+   0x000055555555eca9 <+48>:	
+   0x000055555555ecaa <+49>:	
+   0x000055555555ecab <+50>:	
+   0x000055555555ecac <+51>:	
+   0x000055555555ecad <+52>:	
+   0x000055555555ecae <+53>:	
+   0x000055555555ecaf <+54>:	
+   0x000055555555ecb0 <+55>:	
+   0x000055555555ecb1 <+56>:	
+   0x000055555555ecb2 <+57>:	
+   0x000055555555ecb3 <+58>:	
+   0x000055555555ecb4 <+59>:	
+   0x000055555555ecb5 <+60>:	
+   0x000055555555ecb6 <+61>:	
+   0x000055555555ecb7 <+62>:	
+   0x000055555555ecb8 <+63>:	
+   0x000055555555ecb9 <+64>:	
+   0x000055555555ecba <+65>:	
+   0x000055555555ecbb <+66>:	
+   0x000055555555ecbc <+67>:	
+   0x000055555555ecbd <+68>:	
+   0x000055555555ecbe <+69>:	
+--Type <RET> for more, q to quit, c to continue without paging--q
+Quit
+(cuda-gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 511325] will be killed.
+
+Quit anyway? (y or n) y
+[dmc6955@e5-cse-340-01:~/research/spring25/bo/gpu_mem_attack/PoC]
+$ cuda-gdb ./poc
+NVIDIA (R) cuda-gdb 12.5
+Portions Copyright (C) 2007-2024 NVIDIA Corporation
+Based on GNU gdb 13.2
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This CUDA-GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://forums.developer.nvidia.com/c/developer-tools/cuda-developer-tools/cuda-gdb>.
+Find the CUDA-GDB manual and other documentation resources online at:
+    <https://docs.nvidia.com/cuda/cuda-gdb/index.html>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./poc...
+(cuda-gdb) break link
+Breakpoint 1 at 0xb50b: file /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc.cu, line 143.
+(cuda-gdb) print page1
+No symbol "page1" in current context.
+(cuda-gdb) run
+Starting program: /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5e00000 (LWP 980471)]
+[New Thread 0x7fffefe00000 (LWP 980472)]
+[Detaching after fork from child process 980473]
+[New Thread 0x7fffee200000 (LWP 980483)]
+[New Thread 0x7fffed800000 (LWP 980484)]
+[Switching focus to CUDA kernel 0, grid 2, block (0,0,0), thread (0,0,0), device 0, sm 0, warp 1, lane 0]
+
+CUDA thread hit Breakpoint 1.2, link<<<(1,1,1),(1,1,1)>>> (page1=0x7fffc5c00000, page2=0x7fffc5e00000) at poc.cu:144
+144	    int64_t addr1 = (int64_t)page1 + 16;
+(cuda-gdb) print page1
+$1 = (@generic uint64_t * @parameter) 0x7fffc5c00000
+(cuda-gdb) print page2
+$2 = (@generic uint64_t * @parameter) 0x7fffc5e00000
+(cuda-gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(cuda-gdb) break sum1
+Breakpoint 2 at 0x0: sum1. (2 locations)
+(cuda-gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5e00000 (LWP 981392)]
+[New Thread 0x7fffefe00000 (LWP 981393)]
+[Detaching after fork from child process 981394]
+[New Thread 0x7fffee200000 (LWP 981404)]
+[New Thread 0x7fffed800000 (LWP 981405)]
+[Switching focus to CUDA kernel 1, grid 2, block (0,0,0), thread (0,0,0), device 0, sm 0, warp 1, lane 0]
+
+CUDA thread hit Breakpoint 1.2, link<<<(1,1,1),(1,1,1)>>> (page1=0x7fffc5c00000, page2=0x7fffc5e00000) at poc.cu:144
+144	    int64_t addr1 = (int64_t)page1 + 16;
+(cuda-gdb) break sum1
+Note: breakpoint 2 also set at pc 0x55555555ec68.
+Note: breakpoint 2 also set at pc 0x0.
+Breakpoint 3 at 0x0: sum1. (2 locations)
+(cuda-gdb) break sum2
+Note: breakpoints 2 and 3 also set at pc 0x0.
+Breakpoint 4 at 0x0: sum2. (2 locations)
+(cuda-gdb) run       
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5e00000 (LWP 981518)]
+[New Thread 0x7fffefe00000 (LWP 981519)]
+[Detaching after fork from child process 981520]
+[New Thread 0x7fffee200000 (LWP 981534)]
+[New Thread 0x7fffed800000 (LWP 981535)]
+[Switching focus to CUDA kernel 2, grid 2, block (0,0,0), thread (0,0,0), device 0, sm 0, warp 1, lane 0]
+
+CUDA thread hit Breakpoint 1.2, link<<<(1,1,1),(1,1,1)>>> (page1=0x7fffc5c00000, page2=0x7fffc5e00000) at poc.cu:144
+144	    int64_t addr1 = (int64_t)page1 + 16;
+(cuda-gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 981516] will be killed.
+
+Quit anyway? (y or n) y
+[dmc6955@e5-cse-340-01:~/research/spring25/bo/gpu_mem_attack/PoC]
+$ cuda-gdb ./poc
+NVIDIA (R) cuda-gdb 12.5
+Portions Copyright (C) 2007-2024 NVIDIA Corporation
+Based on GNU gdb 13.2
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This CUDA-GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://forums.developer.nvidia.com/c/developer-tools/cuda-developer-tools/cuda-gdb>.
+Find the CUDA-GDB manual and other documentation resources online at:
+    <https://docs.nvidia.com/cuda/cuda-gdb/index.html>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./poc...
+(cuda-gdb) break sum1
+Breakpoint 1 at 0xac68: file /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc.cu, line 86.
+(cuda-gdb) run
+Starting program: /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5e00000 (LWP 981707)]
+[New Thread 0x7fffefe00000 (LWP 981708)]
+[Detaching after fork from child process 981709]
+[New Thread 0x7fffee200000 (LWP 981719)]
+[New Thread 0x7fffed800000 (LWP 981720)]
+[Switching focus to CUDA kernel 0, grid 18, block (0,0,0), thread (0,0,0), device 0, sm 0, warp 1, lane 0]
+
+CUDA thread hit Breakpoint 1.2, sum1 (k=1, a=0x7fffbbe00000, depth=0, value_ptr=13, arr_idx=0) at poc.cu:88
+88	    for(int i = 0; i < 16; i++){
+(cuda-gdb) info cuda modules
+Unrecognized option: 'modules'.
+(cuda-gdb) info address sum1
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525b100.
+(cuda-gdb) 
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525b100.
+(cuda-gdb) info address sum1
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525b100.
+(cuda-gdb) info address sum2
+Symbol "sum2(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525c700.
+(cuda-gdb) Quit
+(cuda-gdb)                                                                                                                                             
+
