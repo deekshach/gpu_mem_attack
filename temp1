@@ -1,0 +1,79 @@
+dmc6955@e5-cse-340-01:~/research/spring25/bo/gpu_mem_attack/PoC]
+$ cuda-gdb ./poc
+NVIDIA (R) cuda-gdb 12.5
+Portions Copyright (C) 2007-2024 NVIDIA Corporation
+Based on GNU gdb 13.2
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This CUDA-GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://forums.developer.nvidia.com/c/developer-tools/cuda-developer-tools/cuda-gdb>.
+Find the CUDA-GDB manual and other documentation resources online at:
+    <https://docs.nvidia.com/cuda/cuda-gdb/index.html>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./poc...
+(cuda-gdb) info address sum1
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0xac4b.
+(cuda-gdb) cuda break sum1
+Undefined cuda command: "break sum1".  Try "help cuda".
+(cuda-gdb) break sum1     
+Breakpoint 1 at 0xac68: file /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc.cu, line 86.
+(cuda-gdb) run
+Starting program: /scratch/thishome/research/spring25/bo/gpu_mem_attack/PoC/poc 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5e00000 (LWP 994445)]
+[New Thread 0x7fffefe00000 (LWP 994446)]
+[Detaching after fork from child process 994447]
+[New Thread 0x7fffee200000 (LWP 994457)]
+[New Thread 0x7fffed800000 (LWP 994458)]
+[Switching focus to CUDA kernel 0, grid 18, block (0,0,0), thread (0,0,0), device 0, sm 0, warp 1, lane 0]
+
+CUDA thread hit Breakpoint 1.2, sum1 (k=1, a=0x7fffbbe00000, depth=0, value_ptr=13, arr_idx=0) at poc.cu:88
+88	    for(int i = 0; i < 16; i++){
+(cuda-gdb) info address sum1
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525b100.
+(cuda-gdb) 
+Symbol "sum1(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525b100.
+(cuda-gdb) info address sum2
+Symbol "sum2(unsigned int, unsigned int*, unsigned int, unsigned int, unsigned int)" is a function at address 0x7fffc525c700.
+(cuda-gdb) info registers                                                                                                         R0             0xe3fffd40          -469762752
+R1             0xfffd40            16776512
+R2             0x7fff              32767
+R3             0x7fff              32767
+R4             0xbbe00000          -1142947840
+R5             0x0                 0
+R6             0x7fff              32767
+R7             0x7fff              32767
+R8             0xd                 13
+R9             0x0                 0
+R10            0x0                 0
+R11            0x0                 0
+R12            0xfffd40            16776512
+R13            0x0                 0
+R14            0x0                 0
+R15            0x0                 0
+R16            0xbbe00000          -1142947840
+R17            0x1                 1
+R18            0x0                 0
+R19            0x1                 1
+R20            0xc525a6d0          -987388208
+R21            0x7fff              32767
+R22            0x0                 0
+R23            0xd                 13
+R24            0x0                 0
+R25            0x0                 0
+R26            0x0                 0
+R27            0x0                 0
+R28            0x0                 0
+R29            0x0                 0
+R30            0x0                 0
+R31            0x0                 0
+R32            0x0                 0
+R33            0x0                 0
