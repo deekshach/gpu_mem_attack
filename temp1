@@ -77,3 +77,18 @@ R30            0x0                 0
 R31            0x0                 0
 R32            0x0                 0
 R33            0x0                 0
+
+
+
+COMMANDS:
+
+1. cuda-gdb ./poc
+2. break link
+3. run
+4. print page1
+
+
+1. cuda-gdb ./poc
+2. break sum1
+3. run
+4. info address sum1
